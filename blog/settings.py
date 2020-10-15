@@ -277,7 +277,7 @@ STATICFILES_DIRS = [
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-MEDIA_URL = '/media/'
+# MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = "uploads/"
 import dj_database_url 
 
@@ -288,21 +288,14 @@ DATABASES['default'].update(prod_db)
 
 
 
-# DEFAULT_FILE_STORAGE = 'blog.custom_azure.AzureMediaStorage'
-# # STATICFILES_STORAGE = 'useraccount.custom_azure.AzureStaticStorage'
+DEFAULT_FILE_STORAGE = 'blog.custom_azure.AzureMediaStorage'
+STATICFILES_STORAGE = 'useraccount.custom_azure.AzureStaticStorage'
 
-# # STATIC_LOCATION = "static"
-# MEDIA_LOCATION = "media"
+STATIC_LOCATION = "static"
+MEDIA_LOCATION = "media"
 
-# AZURE_ACCOUNT_NAME = os.environ.get('Azure_Account_Name', '')
-# AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
-# # STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-# MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUD_NAME', ''),
-    'API_KEY': os.environ.get('API_KEY', ''),
-    'API_SECRET': os.environ.get('API_SECRET', ''),
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+AZURE_ACCOUNT_NAME = os.environ.get('Azure_Account_Name', '')
+AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 
